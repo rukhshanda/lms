@@ -7,7 +7,11 @@ class Course(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     duration = models.IntegerField()
-    members = models.ManyToManyField('Student', through='CourseMembership')
+    exam_date = models.DateTimeField()
+    evaluation_date = models.DateField()
+    published = models.BooleanField(default=False)
+    _class = models.ForeignKey('Class')
+    teachers = models.ManyToManyField('Teacher', through='CourseTeachers')
 
     class Meta:
         verbose_name = 'course'
@@ -18,11 +22,35 @@ class Course(models.Model):
         return self.name
 
 
-class CourseMembership(models.Model):
-    student = models.ForeignKey('Student')
+class CourseMaterial(models.Model):
+    title = models.CharField(max_length=100L)
+    file = models.FileField(upload_to='/course/material/')
     course = models.ForeignKey('Course')
 
     class Meta:
-        verbose_name = 'coursemembership'
-        verbose_name_plural = 'coursememberships'
+        verbose_name = 'coursematerial'
+        verbose_name_plural = 'coursematerials'
+        app_label = 'app'
+
+
+class CoursePlan(models.Model):
+    course = models.ForeignKey('Course')
+    teacher = models.ForeignKey('Teacher')
+    week = models.IntegerField()
+    contents = models.TextField(max_length=5000)
+
+    class Meta:
+        verbose_name = 'courseplan'
+        verbose_name_plural = 'courseplans'
+        app_label = 'app'
+
+
+class CourseTeachers(models.Model):
+    course = models.ForeignKey('Course')
+    teacher = models.ForeignKey('Teacher')
+    course_coordinator = models.BooleanField()
+
+    class Meta:
+        verbose_name = 'courseteacher'
+        verbose_name_plural = 'courseteachers'
         app_label = 'app'

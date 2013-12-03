@@ -2,17 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Student(User):
+class Teacher(User):
     GENDER_CHOICES = (('male', 'Male'), ('female', 'Female'))
+    SPECIALITY_CHOICES = (('anatomy', 'Anatomy'), ('physiology', 'Physiology'))
 
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
-    roll_no = models.CharField(max_length=11, unique= True)
-    _class = models.ForeignKey('Class', related_name='students')
-    group = models.ForeignKey('Group')
+    speciality = models.CharField(max_length=10, choices=SPECIALITY_CHOICES)
 
     class Meta:
-        verbose_name = 'student'
-        verbose_name_plural = 'students'
+        verbose_name = 'teacher'
+        verbose_name_plural = 'teachers'
         app_label = 'app'
 
     def __unicode__(self):

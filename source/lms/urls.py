@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+
+from source.app.views import home
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -9,4 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+
+    # Home URLs
+    url(r'^$', home.index, name='home.index'),
 )
