@@ -106,6 +106,12 @@ STATICFILES_FINDERS = (
 ########## END STATIC FILE CONFIGURATION
 
 
+########## TEMPLATES CONFGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_DIRS
+TEMPLATE_DIRS = [normpath(join(SITE_ROOT, 'templates'))]
+########## END TEMPLATES CONFIGURATION
+
+
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = 'omf%rwng47&p_cdgk&c8u_66qj(ky&al-o&jbjd%o&k*xwbn6i'
@@ -154,7 +160,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'app',
+    'source.app',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
