@@ -15,3 +15,5 @@ class Group(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolure_url(self):
+        return "/group/%i/" % self.id

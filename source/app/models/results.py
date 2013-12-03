@@ -23,3 +23,7 @@ class SubjectResult(models.Model):
     ospe = models.FloatField()
     grandtotal = models.FloatField()
 
+    class Meta:
+        verbose_name = 'subject_result'
+        verbose_name_plural = 'subject_results'
+        app_label = 'app'

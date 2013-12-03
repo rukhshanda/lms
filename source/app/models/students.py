@@ -18,3 +18,5 @@ class Student(User):
     def __unicode__(self):
         return self.get_full_name()
 
+    def get_absolure_url(self):
+        return "/student/%i/" % self.id

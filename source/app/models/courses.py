@@ -21,6 +21,9 @@ class Course(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolure_url(self):
+        return "/course/%i/" % self.id
+
 
 class CourseMaterial(models.Model):
     title = models.CharField(max_length=100L)
@@ -31,6 +34,9 @@ class CourseMaterial(models.Model):
         verbose_name = 'coursematerial'
         verbose_name_plural = 'coursematerials'
         app_label = 'app'
+
+    def get_absolure_url(self):
+        return "/course/material/%i/" % self.id
 
 
 class CoursePlan(models.Model):
@@ -43,6 +49,9 @@ class CoursePlan(models.Model):
         verbose_name = 'courseplan'
         verbose_name_plural = 'courseplans'
         app_label = 'app'
+
+    def get_absolure_url(self):
+        return "/course/plan/%i/" % self.id
 
 
 class CourseTeachers(models.Model):

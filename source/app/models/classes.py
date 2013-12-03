@@ -2,7 +2,9 @@ from django.db import models
 
 
 class Class(models.Model):
-    name = models.CharField(max_length=4, unique= True)
+    name = models.CharField(max_length=4, unique=True)
+    year = models.IntegerField()
+    coordinator = models.ForeignKey('Teacher')
 
     class Meta:
         verbose_name = 'class'
@@ -11,3 +13,6 @@ class Class(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolure_url(self):
+        return "/class/%i/" % self.id
