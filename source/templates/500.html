@@ -1,1 +1,26 @@
-<h1>Whoops!</h1>
+{% extends "base.html" %}
+
+{% block base_contents %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <div class="jumbotron">
+            <h2>Internal Server Error</h2>
+            <p>
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% else %}
+                    This happens when something blows up our code. You viewing this does not fix the code. In fact, you're likely pissed off at the moment. Take solace, <strong>Top Men</strong> are now aware.
+                {% endif %}
+            </p>
+            <br>
+            <p><a href="/" class="btn btn-primary btn-lg">Go back Home</a></p>
+        </div>
+
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% endblock %}
