@@ -82,9 +82,9 @@
                     {% if user.is_authenticated %}
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav pull-right">
-                            <li><a href="/dashboard/"><em>Dashboard&nbsp;&nbsp;<span title="Logout" class="glyphicon glyphicon-dashboard"></span></em></a></li>
-                            <li><a href="/profile/"><em>{% firstof user.get_full_name user.get_username %}&nbsp;&nbsp;<span title="Logout" class="glyphicon glyphicon-user"></span></em></a></li>
-                            <li><a href="/auth/signout/"><em>Sign out&nbsp;&nbsp;<span title="Logout" class="glyphicon glyphicon-log-out"></span></em></a></li>
+                            <li><a href="/dashboard/"><em><span title="Logout" class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Dashboard</em></a></li>
+                            <li><a href="/profile/"><em><span title="Logout" class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{% firstof user.get_full_name user.get_username %}</em></a></li>
+                            <li><a href="/auth/signout/"><em><span title="Logout" class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Sign out</em></a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                     {% else %}
@@ -121,9 +121,14 @@
         <div id="footer">
             <div class="container" style="padding-top: 0;">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a class="pull-right" style="margin-top: 10px; color: #ffffff" href="http://www.israisb.com/" target="_blank">
+                    <div class="col-md-4">
+                        <a class="pull-left" style="margin-top: 10px; color: #ffffff" href="http://www.israisb.com/" target="_blank">
                             <em>Al Nafees Medical College</em>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <a class="pull-right" style="margin-top: 10px; color: #ffffff" href="/support/" target="_blank">
+                            <em>Contact Support</em>
                         </a>
                     </div>
                 </div>

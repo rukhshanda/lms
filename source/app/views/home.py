@@ -15,3 +15,7 @@ def profile(request):
 
 def dashboard(request):
     raise NotImplementedError('This view is not implemented yet.')
+
+
+def support(request):
+    raise NotImplementedError('This view is not implemented yet.')
