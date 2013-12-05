@@ -9,11 +9,15 @@ def index(request):
     )
 
 
-def profile(request):
-    raise NotImplementedError('This view is not implemented yet.')
-
-
 def dashboard(request):
+    return render(
+        request,
+        'home/dashboard.html',
+        {}
+    )
+
+
+def profile(request):
     raise NotImplementedError('This view is not implemented yet.')
 
 

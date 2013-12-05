@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-md-10">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="/dashboard/">Dashboard</a></li>
+            <li><a href="/class/">Classes</a></li>
+            <li><a href="/group/">Groups</a></li>
+            <li><a href="/teacher/">Teachers</a></li>
+            <li><a href="/course/">Courses</a></li>
+            <li><a href="/resource/">Resources</a></li>
+            <li><a href="/student/">Students</a></li>
+            <li><a href="/feedback/">Feedback</a></li>
+            <li><a href="/result/">Result</a></li>
+            <li class="pull-right"><a href="/report/">Reports</a></li>
+            <li class="pull-right"><a href="/log/">Logs</a></li>
+            <li class="pull-right"><a href="/news/">News</a></li>
+            <li class="pull-right"><a href="/events/">Events</a></li>
+        </ul>
+
+        <div class="col-md-12">
+            <div class="jumbotron" style="margin-top: 10px; height: 650px;">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title">Latest News</h1>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <a href="/news/view/1/">New LMS is under development</a>
+                    <br>
+                    <small><em>Dec 04, 2013</em></small>
+                </p>
+                <p>
+                    <a href="/news/view/1/">New LMS is under development</a>
+                    <br>
+                    <small><em>Dec 04, 2013</em></small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
