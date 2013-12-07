@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li><a href="/dashboard/">Dashboard</a></li>
+            <li><a href="/dashboard/teacher/">Teachers</a></li>
+            <li ><a href="/dashboard/class/">Classes</a></li>
+            <li class="active"><a href="/dashboard/group/">Groups</a></li>
+            <li><a href="/dashboard/course/">Courses</a></li>
+            <li><a href="/dashboard/resource/">Resources</a></li>
+            <li><a href="/dashboard/student/">Students</a></li>
+            <li><a href="/dashboard/feedback/">Feedback</a></li>
+            <li><a href="/dashboard/result/">Result</a></li>
+            <li class="pull-right"><a href="/dashboard/report/">Reports</a></li>
+            <li class="pull-right"><a href="/dashboard/log/">Logs</a></li>
+            <li class="pull-right"><a href="/dashboard/news/">News</a></li>
+            <li class="pull-right"><a href="/dashboard/events/">Events</a></li>
+        </ul>
+
+        <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <small>Manage Groups</small>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="pull-right" href="/dashboard/group/add/">
+                                <small><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Group</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th><small>Name</small></th>
+                                <th><small>Start Date</small></th>
+                                <th><small>End Date</small></th>
+                                <th><small>Class</small></th>
+                                <th><small>Group Representative</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for group in groups %}
+                            <tr>
+                                <td><small><a href="{{ group.get_absolure_url }}">{{ group.name }}</a></small></td>
+                                <td><small>{{ group.start_date }}</small></td>
+                                <td><small>{{ group.end_date }}</small></td>
+                                <td><small>{{ group.cclass }}</small></td>
+                                <td><small><a href="{{ group.representative.get_absolure_url }}">{{ group.representative.get_full_name }}</a></small></td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5">
+                                    <small>
+                                        <em>
+                                            Nothing found in the database. Add a <a href="/dashboard/group/add/">New Group</a> here.
+                                        </em>
+                                    </small>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
