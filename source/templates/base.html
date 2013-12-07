@@ -85,9 +85,9 @@
                     {% if user.is_authenticated %}
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav pull-right">
-                            <li><a href="/dashboard/"><em><span title="Logout" class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Dashboard</em></a></li>
-                            <li><a href="/profile/"><em><span title="Logout" class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{% firstof user.get_full_name user.get_username %}</em></a></li>
-                            <li><a href="/auth/signout/"><em><span title="Logout" class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Sign out</em></a></li>
+                            <li><a href="/dashboard/"><em><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Dashboard</em></a></li>
+                            <li><a href="/profile/"><em><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{% firstof user.get_full_name user.get_username %}</em></a></li>
+                            <li><a href="/auth/signout/"><em><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Sign out</em></a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                     {% else %}

@@ -77,6 +77,13 @@ USE_TZ = True
 ########## END GENERAL CONFIGURATION
 
 
+########## LOGIN URLS
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/auth/signin/'
+LOGOUT_URL = '/auth/signout/'
+########## END LOGIN URLS
+
+
 ########## MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))

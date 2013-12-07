@@ -20,4 +20,6 @@ urlpatterns = patterns('',
 
     # Dashboard URLs
     url(r'^dashboard/$', dashboard.index, name='dashboard.index'),
+    url(r'^dashboard/teacher/$', dashboard.teacher, name='dashboard.teacher'),
+    url(r'^dashboard/class/$', dashboard._class, name='dashboard.class'),
 )

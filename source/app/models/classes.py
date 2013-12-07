@@ -15,4 +15,4 @@ class Class(models.Model):
         return self.name
 
     def get_absolure_url(self):
-        return "/class/%i/" % self.id
+        return "/dashboard/class/%i/" % self.id
