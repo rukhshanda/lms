@@ -21,6 +21,9 @@ urlpatterns = patterns('',
     # Dashboard URLs
     url(r'^dashboard/$', dashboard.index, name='dashboard.index'),
     url(r'^dashboard/teacher/$', dashboard.teacher, name='dashboard.teacher'),
+    url(r'^dashboard/teacher/add/$', dashboard.teacher_add, name='dashboard.teacher_add'),
+    url(r'^dashboard/teacher/(?P<id>\d+)/$', dashboard.teacher_edit, name='dashboard.teacher_edit'),
+    url(r'^dashboard/teacher/(?P<id>\d+)/delete/$', dashboard.teacher_delete, name='dashboard.teacher_delete'),
     url(r'^dashboard/class/$', dashboard._class, name='dashboard.class'),
     url(r'^dashboard/group/$', dashboard.group, name='dashboard.group'),
 

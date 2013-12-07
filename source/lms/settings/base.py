@@ -151,6 +151,11 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 ########## END URL CONFIGURATION
 
 
+########## CRISPY FORMS
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+########## END CRISPY FORMS
+
+
 ########## APP CONFIGURATION
 DJANGO_APPS = (
     'django.contrib.admin',
@@ -162,8 +167,8 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    # Database migration helpers:
     'south',
+    'crispy_forms',
 )
 
 LOCAL_APPS = (
