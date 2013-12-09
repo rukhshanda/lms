@@ -14,6 +14,9 @@ class Student(User):
         verbose_name = 'student'
         verbose_name_plural = 'students'
         app_label = 'app'
+        permissions = (
+            ('has_student_perms', 'Has student permissions'),
+        )
 
     def __unicode__(self):
         return self.get_full_name()

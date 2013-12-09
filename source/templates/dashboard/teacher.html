@@ -53,8 +53,8 @@
                             {% for teacher in teachers %}
                             <tr>
                                 <td><small><a href="{{ teacher.get_absolure_url }}">{{ teacher.get_full_name }}</a></small></td>
-                                <td><small>{{ teacher.speciality }}</small></td>
-                                <td><small>{{ teacher.gender }}</small></td>
+                                <td><small>{{ teacher.get_speciality_display }}</small></td>
+                                <td><small>{{ teacher.get_gender_display }}</small></td>
                                 <td><small>{{ teacher.email }}</small></td>
                                 <td><small>{{ teacher.date_joined }}</small></td>
                                 <td><small><a href="/dashboard/teacher/{{ teacher.id }}/delete/">Delete</a></small></td>

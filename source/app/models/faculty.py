@@ -21,6 +21,9 @@ class Teacher(User):
         verbose_name = 'teacher'
         verbose_name_plural = 'teachers'
         app_label = 'app'
+        permissions = (
+            ('has_faculty_perms', 'Has faculty permissions'),
+        )
 
     def __unicode__(self):
         return self.get_full_name()
