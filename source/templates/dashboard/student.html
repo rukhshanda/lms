@@ -5,10 +5,10 @@
     <div class="col-md-12">
         <ul class="nav nav-tabs">
             <li><a href="/dashboard/">Dashboard</a></li>
-            <li class="active"><a href="/dashboard/teacher/">Teachers</a></li>
+            <li><a href="/dashboard/teacher/">Teachers</a></li>
             <li><a href="/dashboard/class/">Classes</a></li>
             <li><a href="/dashboard/group/">Groups</a></li>
-            <li><a href="/dashboard/student/">Students</a></li>
+            <li class="active"><a href="/dashboard/student/">Students</a></li>
             <li><a href="/dashboard/course/">Courses</a></li>
             <li><a href="/dashboard/resource/">Resources</a></li>
             <li><a href="/dashboard/feedback/">Feedback</a></li>
@@ -24,15 +24,15 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <small>Manage Teachers</small>
+                            <small>Manage Students</small>
                         </div>
                         <div class="col-md-6 pull-right">
-                                <a href="/dashboard/teacher/import/" class="pull-right">
-                                <small><span class="glyphicon glyphicon-import"></span>&nbsp;&nbsp;Import Teachers</small>
+                                <a href="/dashboard/student/import/" class="pull-right">
+                                <small><span class="glyphicon glyphicon-import"></span>&nbsp;&nbsp;Import Students</small>
                                 </a>
                                 <span class="pull-right">&nbsp;&nbsp;&nbsp;</span>
-                                <a href="/dashboard/teacher/add/" class="pull-right">
-                                    <small><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Teacher</small>
+                                <a href="/dashboard/student/add/" class="pull-right">
+                                    <small><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Student</small>
                                 </a>
                         </div>
                     </div>
@@ -42,29 +42,33 @@
                         <thead>
                             <tr>
                                 <th><small>Name</small></th>
-                                <th><small>Speciality</small></th>
+                                <th><small>Roll No.</small></th>
                                 <th><small>Gender</small></th>
                                 <th><small>Email</small></th>
+                                <th><small>Class</small></th>
+                                <th><small>Group</small></th>
                                 <th><small>Date Joined</small></th>
                                 <th><small>Delete</small></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for teacher in teachers %}
+                            {% for student in students %}
                             <tr>
-                                <td><small><a href="{{ teacher.get_absolure_url }}">{{ teacher.get_full_name }}</a></small></td>
-                                <td><small>{{ teacher.get_speciality_display }}</small></td>
-                                <td><small>{{ teacher.get_gender_display }}</small></td>
-                                <td><small>{{ teacher.email }}</small></td>
-                                <td><small>{{ teacher.date_joined }}</small></td>
-                                <td><small><a href="/dashboard/teacher/{{ teacher.id }}/delete/">Delete</a></small></td>
+                                <td><small><a href="{{ student.get_absolure_url }}">{{ student.get_full_name }}</a></small></td>
+                                <td><small>{{ student.roll_no }}</small></td>
+                                <td><small>{{ student.get_gender_display }}</small></td>
+                                <td><small>{{ student.email }}</small></td>
+                                <td><small>{{ student.cclass }}</small></td>
+                                <td><small>{{ student.group }}</small></td>
+                                <td><small>{{ student.date_joined }}</small></td>
+                                <td><small><a href="/dashboard/student/{{ student.id }}/delete/">Delete</a></small></td>
                             </tr>
                             {% empty %}
                             <tr>
                                 <td colspan="6">
                                     <small>
                                         <em>
-                                            Nothing found in the database. Add a <a href="/dashboard/teacher/add/">New Teacher</a> manually or <a href="/dashboard/teacher/import/">Import Teachers</a> from a CSV file.
+                                            Nothing found in the database. Add a <a href="/dashboard/student/add/">New Student</a> manually or <a href="/dashboard/student/import/">Import Students</a> from a CSV file.
                                         </em>
                                     </small>
                                 </td>

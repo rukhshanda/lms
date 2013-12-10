@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from source.app.views import home, auth
-from source.app.views.dashboard import home as dhome, teachers, classes, groups
+from source.app.views.dashboard import home as dhome, teachers, classes, students, groups
 
 admin.autodiscover()
 
@@ -31,4 +31,8 @@ urlpatterns = patterns('',
     url(r'^dashboard/group/$', groups.group, name='dashboard.group'),
     url(r'^dashboard/group/add/$', groups.group_add, name='dashboard.group_add'),
     url(r'^dashboard/group/(?P<id>\d+)/$', groups.group_edit, name='dashboard.group_edit'),
+    url(r'^dashboard/student/$', students.student, name='dashboard.student'),
+    url(r'^dashboard/student/add/$', students.student_add, name='dashboard.student_add'),
+    url(r'^dashboard/student/(?P<id>\d+)/$', students.student_edit, name='dashboard.student_edit'),
+    url(r'^dashboard/student/(?P<id>\d+)/delete/$', students.student_delete, name='dashboard.student_delete'),
 )

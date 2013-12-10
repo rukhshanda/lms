@@ -7,9 +7,9 @@
         <ul class="nav nav-tabs">
             <li><a href="/dashboard/">Dashboard</a></li>
             <li><a href="/dashboard/teacher/">Teachers</a></li>
-            <li class="active"><a href="/dashboard/class/">Classes</a></li>
+            <li><a href="/dashboard/class/">Classes</a></li>
             <li><a href="/dashboard/group/">Groups</a></li>
-            <li><a href="/dashboard/student/">Students</a></li>
+            <li class="active"><a href="/dashboard/student/">Students</a></li>
             <li><a href="/dashboard/course/">Courses</a></li>
             <li><a href="/dashboard/resource/">Resources</a></li>
             <li><a href="/dashboard/feedback/">Feedback</a></li>
@@ -25,7 +25,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <small>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Class</small>
+                            <small>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</small>
                         </div>
                     </div>
                 </div>
@@ -43,4 +43,9 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+    $(document).ready(function() {
+        $('#id_password').val('');
+    });
+</script>
 {% endblock %}

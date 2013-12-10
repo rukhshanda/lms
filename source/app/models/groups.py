@@ -6,7 +6,7 @@ class Group(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     cclass = models.ForeignKey('Class')
-    representative = models.ForeignKey('Student', related_name='representative')
+    representative = models.ForeignKey('Student', related_name='representative', null=True, blank=True)
 
     class Meta:
         verbose_name = 'group'

@@ -27,8 +27,8 @@ class GroupForm(ModelForm):
         self.helper.field_class = 'col-md-8'
         self.helper.layout = Layout(
             Field('name', css_class='input-sm'),
-            Field('start_date', css_class='input-sm', placeholder='mm/dd/yyyy'),
-            Field('end_date', css_class='input-sm', placeholder='mm/dd/yyyy'),
+            Field('start_date', css_class='input-sm', placeholder='yyyy-mm-dd'),
+            Field('end_date', css_class='input-sm', placeholder='yyyy-mm-dd'),
             Field('cclass', css_class='input-sm'),
             Field('representative', css_class='input-sm'),
             FormActions(
