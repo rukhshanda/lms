@@ -25,6 +25,8 @@ urlpatterns = patterns('',
     url(r'^dashboard/teacher/(?P<id>\d+)/$', dashboard.teacher_edit, name='dashboard.teacher_edit'),
     url(r'^dashboard/teacher/(?P<id>\d+)/delete/$', dashboard.teacher_delete, name='dashboard.teacher_delete'),
     url(r'^dashboard/class/$', dashboard._class, name='dashboard.class'),
+    url(r'^dashboard/class/add/$', dashboard.class_add, name='dashboard.class_add'),
+    url(r'^dashboard/class/(?P<id>\d+)/$', dashboard.class_edit, name='dashboard.class_edit'),
     url(r'^dashboard/group/$', dashboard.group, name='dashboard.group'),
 
 )

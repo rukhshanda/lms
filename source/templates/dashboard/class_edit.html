@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li><a href="/dashboard/">Dashboard</a></li>
+            <li><a href="/dashboard/teacher/">Teachers</a></li>
+            <li class="active"><a href="/dashboard/class/">Classes</a></li>
+            <li><a href="/dashboard/group/">Groups</a></li>
+            <li><a href="/dashboard/course/">Courses</a></li>
+            <li><a href="/dashboard/resource/">Resources</a></li>
+            <li><a href="/dashboard/student/">Students</a></li>
+            <li><a href="/dashboard/feedback/">Feedback</a></li>
+            <li><a href="/dashboard/result/">Result</a></li>
+            <li class="pull-right"><a href="/dashboard/report/">Reports</a></li>
+            <li class="pull-right"><a href="/dashboard/log/">Logs</a></li>
+            <li class="pull-right"><a href="/dashboard/news/">News</a></li>
+            <li class="pull-right"><a href="/dashboard/events/">Events</a></li>
+        </ul>
+
+        <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <small>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Class</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% crispy form %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
