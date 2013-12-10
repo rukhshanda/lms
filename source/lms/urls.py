@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from source.app.views import home, auth, dashboard
+from source.app.views import home, auth
+from source.app.views.dashboard import home as dhome, teachers, classes, groups
 
 admin.autodiscover()
 
@@ -19,16 +20,15 @@ urlpatterns = patterns('',
     url(r'^support/$', home.support, name='home.support'),
 
     # Dashboard URLs
-    url(r'^dashboard/$', dashboard.index, name='dashboard.index'),
-    url(r'^dashboard/teacher/$', dashboard.teacher, name='dashboard.teacher'),
-    url(r'^dashboard/teacher/add/$', dashboard.teacher_add, name='dashboard.teacher_add'),
-    url(r'^dashboard/teacher/(?P<id>\d+)/$', dashboard.teacher_edit, name='dashboard.teacher_edit'),
-    url(r'^dashboard/teacher/(?P<id>\d+)/delete/$', dashboard.teacher_delete, name='dashboard.teacher_delete'),
-    url(r'^dashboard/class/$', dashboard._class, name='dashboard.class'),
-    url(r'^dashboard/class/add/$', dashboard.class_add, name='dashboard.class_add'),
-    url(r'^dashboard/class/(?P<id>\d+)/$', dashboard.class_edit, name='dashboard.class_edit'),
-    url(r'^dashboard/group/$', dashboard.group, name='dashboard.group'),
-    url(r'^dashboard/group/add/$', dashboard.group_add, name='dashboard.group_add'),
-    url(r'^dashboard/group/(?P<id>\d+)/$', dashboard.group_edit, name='dashboard.group_edit'),
-
+    url(r'^dashboard/$', dhome.index, name='dashboard.index'),
+    url(r'^dashboard/teacher/$', teachers.teacher, name='dashboard.teacher'),
+    url(r'^dashboard/teacher/add/$', teachers.teacher_add, name='dashboard.teacher_add'),
+    url(r'^dashboard/teacher/(?P<id>\d+)/$', teachers.teacher_edit, name='dashboard.teacher_edit'),
+    url(r'^dashboard/teacher/(?P<id>\d+)/delete/$', teachers.teacher_delete, name='dashboard.teacher_delete'),
+    url(r'^dashboard/class/$', classes._class, name='dashboard.class'),
+    url(r'^dashboard/class/add/$', classes.class_add, name='dashboard.class_add'),
+    url(r'^dashboard/class/(?P<id>\d+)/$', classes.class_edit, name='dashboard.class_edit'),
+    url(r'^dashboard/group/$', groups.group, name='dashboard.group'),
+    url(r'^dashboard/group/add/$', groups.group_add, name='dashboard.group_add'),
+    url(r'^dashboard/group/(?P<id>\d+)/$', groups.group_edit, name='dashboard.group_edit'),
 )
