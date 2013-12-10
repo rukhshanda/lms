@@ -2,13 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class StudentManager(models.Manager):
+    def get_queryset(self):
+        return super(StudentManager, self).get_queryset().filter(is_active=True)
+
 class Student(User):
     GENDER_CHOICES = (('male', 'Male'), ('female', 'Female'))
 
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     roll_no = models.CharField(max_length=11, unique= True)
-    _class = models.ForeignKey('Class', related_name='students')
+    cclass = models.ForeignKey('Class', related_name='students')
     group = models.ForeignKey('Group')
+
+    # Model managers
+    objects = StudentManager()
+    objects_all = models.Manager()
 
     class Meta:
         verbose_name = 'student'
@@ -22,4 +30,4 @@ class Student(User):
         return self.get_full_name()
 
     def get_absolure_url(self):
-        return "/student/%i/" % self.id
+        return "/dashboard/student/%i/" % self.id

@@ -10,7 +10,7 @@ class Course(models.Model):
     exam_date = models.DateTimeField()
     evaluation_date = models.DateField()
     published = models.BooleanField(default=False)
-    _class = models.ForeignKey('Class')
+    cclass = models.ForeignKey('Class')
     teachers = models.ManyToManyField('Teacher', through='CourseTeachers')
 
     class Meta:
@@ -22,7 +22,7 @@ class Course(models.Model):
         return self.name
 
     def get_absolure_url(self):
-        return "/course/%i/" % self.id
+        return "/dashboard/course/%i/" % self.id
 
 
 class CourseMaterial(models.Model):
