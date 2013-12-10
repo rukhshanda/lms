@@ -17,4 +17,4 @@ class Group(models.Model):
         return self.name
 
     def get_absolure_url(self):
-        return "/group/%i/" % self.id
+        return "/dashboard/group/%i/" % self.id
