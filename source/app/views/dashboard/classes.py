@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, Http404
 from django.contrib.auth.decorators import login_required
 
-from source.app.models.classes import Class
-from source.app.forms.classes import ClassForm
+from app.models.classes import Class
+from app.forms.classes import ClassForm
 
 
 @login_required(redirect_field_name=None)

@@ -1,6 +1,6 @@
 Django==1.6.2
 django-crispy-forms==1.4.0
 httpagentparser==1.6.0
-simplejson==3.3.2
+simplejson==3.3.3
 requests==2.2.1
 South==0.8.4

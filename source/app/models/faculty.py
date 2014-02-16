@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class TeacherManager(models.Manager):
     def get_queryset(self):
-        return super(TeacherManager, self).get_queryset().filter(is_active=True)
+        return super(TeacherManager, self).get_queryset().filter(deleted=False)
 
 class Teacher(User):
     GENDER_CHOICES = (('male', 'Male'), ('female', 'Female'))
@@ -12,6 +12,7 @@ class Teacher(User):
 
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     speciality = models.CharField(max_length=10, choices=SPECIALITY_CHOICES)
+    deleted = models.BooleanField(default=False)
 
     # Model managers
     objects = TeacherManager()

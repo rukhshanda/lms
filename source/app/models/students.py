@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class StudentManager(models.Manager):
     def get_queryset(self):
-        return super(StudentManager, self).get_queryset().filter(is_active=True)
+        return super(StudentManager, self).get_queryset().filter(deleted=False)
 
 class Student(User):
     GENDER_CHOICES = (('male', 'Male'), ('female', 'Female'))
@@ -13,6 +13,7 @@ class Student(User):
     roll_no = models.CharField(max_length=11, unique= True)
     cclass = models.ForeignKey('Class', related_name='students')
     group = models.ForeignKey('Group')
+    deleted = models.BooleanField(default=False)
 
     # Model managers
     objects = StudentManager()

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, Http404
 from django.contrib.auth.decorators import login_required
 
-from source.app.models.groups import Group
-from source.app.forms.groups import GroupForm
+from app.models.groups import Group
+from app.forms.groups import GroupForm
 
 
 @login_required(redirect_field_name=None)

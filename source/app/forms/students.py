@@ -11,21 +11,19 @@ from app.models.students import Student
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = ('id', 'email', 'password', 'first_name', 'last_name', 'gender', 'roll_no', 'cclass', 'group')
+        fields = ('id', 'email', 'first_name', 'last_name', 'gender', 'roll_no', 'cclass', 'group')
 
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
 
         self.fields['email'].required = True
-        self.fields['password'].required = True
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
         self.fields['roll_no'].required = True
         self.fields['cclass'].required = True
+        self.fields['cclass'].label = 'Class'
 
         instance = kwargs.pop('instance', None)
-        if instance:
-            self.fields['password'].required = False
 
         self.helper = FormHelper(self)
         self.helper.form_method = 'POST'
@@ -34,7 +32,6 @@ class StudentForm(ModelForm):
         self.helper.field_class = 'col-md-8'
         self.helper.layout = Layout(
             Field('email', css_class='input-sm'),
-            Field('password', css_class='input-sm', placeholder='Enter a new password'),
             Field('first_name', css_class='input-sm'),
             Field('last_name', css_class='input-sm'),
             Field('gender', css_class='input-sm'),
@@ -52,14 +49,13 @@ class StudentForm(ModelForm):
 
         instance.username = self.cleaned_data['email']
         instance.is_staff = False
-        instance.is_active = True
+        instance.is_active = False  # Set to false because students can't login
 
         content_type = ContentType.objects.get_for_model(Student)
         permission = Permission.objects.get(content_type=content_type, codename='has_student_perms')
 
         if commit:
-            if self.fields['password']:
-                instance.set_password(self.cleaned_data['password'])
+            instance.set_password('1234567890!')
             instance.save()
             instance.user_permissions.add(permission)
 

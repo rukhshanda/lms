@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, Http404
 from django.contrib.auth.decorators import login_required
 
-from source.app.models.students import Student
-from source.app.forms.students import StudentForm
+from app.models.students import Student
+from app.forms.students import StudentForm
 
 
 @login_required(redirect_field_name=None)
@@ -68,7 +68,15 @@ def student_delete(request, id):
     except Student.DoesNotExist:
         return Http404
 
-    student.is_active = False
+    student.deleted = True
     student.save()
 
     return redirect('/dashboard/student/')
+
+
+@login_required()
+def student_import(request):
+    if request.method == 'POST':
+        pass
+    else:
+        pass
