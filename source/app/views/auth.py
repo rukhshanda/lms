@@ -29,7 +29,3 @@ def signin(request):
 def signout(request):
     logout(request)
     return redirect('/')
-
-
-def forgot_password(request):
-    raise NotImplementedError('This view is not implemented yet.')
