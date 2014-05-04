@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # Auth URLs
     url(r'^auth/signin/$', auth.signin, name='auth.signin'),
     url(r'^auth/signout/$', auth.signout, name='auth.signout'),
+    url(r'^auth/forgot_password/$', auth.forgot_password, name='auth.forgot_password'),
 
     # Home URLs
     url(r'^$', home.index, name='home.index'),
